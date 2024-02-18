@@ -40,7 +40,27 @@ Before you start, ensure you have:
    - Click `Deploy` to finalize the setup.
 
 6. **Installable Triggers**:
+
    - In the Apps Script editor, under `Triggers`, add new triggers for `onEditInstallableTrigger` and `onOpenInstallableTrigger` to run `From spreadsheet` and `On edit` or `On open` respectively.
+
+7. **Configure dataset**:
+   - Create a streaming dataset with the following configuration:
+   ```yaml
+   inputSchema:
+     fields:
+       - name: row_number
+         nullable: false
+         type: integer
+       - name: value
+         nullable: false
+         type: string
+       - name: isDeleted
+         nullable: false
+         type: boolean
+       - name: timestamp
+         nullable: false
+         type: long
+   ```
 
 ## Usage
 
