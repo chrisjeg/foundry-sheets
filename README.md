@@ -2,6 +2,14 @@
 
 > Google Sheets Addon for Palantir Foundry Sync
 
+Sheets 👀
+![image](https://github.com/chrisjeg/foundry-sheets/assets/4092952/f23adfad-6f7d-45e2-aba3-09afaf702771)
+
+
+Foundry 😲
+![image](https://github.com/chrisjeg/foundry-sheets/assets/4092952/48443661-df70-4663-9d9a-e44d6b895ee9)
+
+
 This Google Apps Script enables automated data transfer from Google Sheets to Palantir Foundry upon editing any row in a Sheet using Foundry's [CDC capabilities](https://www.palantir.com/docs/foundry/data-integration/change-data-capture/). It uses Foundry's API to send updated rows directly to a specified dataset in Foundry.
 
 ## Features
