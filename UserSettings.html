@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Foundry Config</title>
+    <!-- Style dependencies -->
+    <link href="https://unpkg.com/normalize.css@^8.0.1" rel="stylesheet" />
+    <!-- Blueprint stylesheets -->
+    <link href="https://unpkg.com/@blueprintjs/icons@^4.0.0/lib/css/blueprint-icons.css" rel="stylesheet" />
+    <link href="https://unpkg.com/@blueprintjs/core@^4.0.0/lib/css/blueprint.css" rel="stylesheet" />
+</head>
+<style>
+    form {
+        padding: 10px 5px;
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<body>
+    <form class="bp4-form-group">
+        <label class="bp4-label" for="instance">Foundry instance</label>
+        <div class="bp4-input-group">
+            <input type="text" id="instance" name="instance" class="bp4-input"
+                placeholder="https://my-foundry-instance.palantirfoundry.com" value="<?= instance ?>">
+            <button type="button" class="bp4-button bp4-minimal bp4-icon-floppy-disk"
+                onclick="submitInstance()"></button>
+        </div>
+    </form>
+    <form class="bp4-form-group">
+        <label class="bp4-label" for="datasetRid">Dataset RID</label>
+        <div class="bp4-input-group">
+            <input type="text" id="datasetRid" name="datasetRid" placeholder="dataset-rid" class="bp4-input"
+                value="<?= datasetRid ?>">
+            <button type="button" class="bp4-button bp4-minimal bp4-icon-floppy-disk"
+                onclick="saveDatasetRid()"></button>
+        </div>
+    </form>
+    <form class="bp4-form-group">
+        <label class="bp4-label" for="token">Access Token</label>
+        <div class="bp4-input-group">
+            <input type="text" id="token" name="token" class="bp4-input" value="<?= token ?>">
+            <button type="button" class="bp4-button bp4-minimal bp4-icon-floppy-disk" onclick="submitToken()"></button>
+        </div>
+    </form>
+
+    <script>
+        function submitToken() {
+            var token = document.getElementById('token').value;
+            google.script.run.withSuccessHandler(function () {
+                alert("Token saved successfully.");
+                google.script.host.close(); // Close the dialog/sidebar if you want
+            })._saveToken(token);
+        }
+
+        function submitInstance() {
+            var instance = document.getElementById('instance').value;
+            google.script.run.withSuccessHandler(function () {
+                alert("Instance saved successfully.");
+                google.script.host.close(); // Close the dialog/sidebar if you want
+            })._saveInstance(instance);
+        }
+
+        function saveDatasetRid() {
+            var datasetRid = document.getElementById('datasetRid').value;
+            google.script.run.withSuccessHandler(function () {
+                alert("Dataset RID saved successfully.");
+                google.script.host.close(); // Close the dialog/sidebar if you want
+            })._saveDatasetRid(datasetRid);
+        }
+    </script>
+</body>
+
+</html>
